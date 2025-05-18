@@ -33,5 +33,4 @@ jobs:
 
       - name: Publish checker lib to local Maven
         run: |
-          cd checker
           ./gradlew publishToMavenLocal
