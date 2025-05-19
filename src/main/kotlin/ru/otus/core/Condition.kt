@@ -1,17 +1,17 @@
-package ru.otus.checker
+package ru.otus.core
 
 import kotlin.reflect.full.primaryConstructor
 
-abstract class Checker {
+abstract class Condition : ICommand<Boolean> {
 
     abstract val code: String
     abstract val expectedValue: Any?
 
-    var next: Checker? = null
+    var next: Condition? = null
 
-    abstract fun check(args: Map<String, Any>): Boolean
+    abstract override fun execute(args: Map<String, Any>): Boolean
 
-    fun getInstance(expectedValue: Any): Checker {
+    fun getInstance(expectedValue: Any): Condition {
         val constructor = this::class.primaryConstructor
             ?: throw NoArgPrimaryConstructorException(className = this::class.simpleName)
         return constructor.call(expectedValue)
