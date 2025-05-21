@@ -1,5 +1,5 @@
 group = "ru.otus"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 plugins {
     kotlin("jvm") version "2.0.10"
@@ -20,7 +20,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             from(components["kotlin"])
             groupId = "ru.otus"
-            artifactId = "checker-core"
+            artifactId = "redirect-core"
             version = "1.0.0"
         }
     }
